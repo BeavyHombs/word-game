@@ -73,8 +73,27 @@ def main():
 
 # import game state (matrix?), can be hard coded for now 
 
+board = [
+    ["o", "a", "t", "r"],
+    ["i", "h", "p", "s"],
+    ["h", "t", "n", "r"],
+    ["e", "n", "e", "i"]
+]
+
 # implement algorithm, print possible words
+
+def find_words(board, trie):
+    found = set()
     
+    for r in range(len(board)):
+        for c in range(len(board[0])):
+            search(board, r, c, trie.root, "", set(), found)
+            
+    return found
+
+def search(board, r, c, node, current_word, visited, found):
+    pass
+
 main()
 
 
