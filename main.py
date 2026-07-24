@@ -1,3 +1,5 @@
+MIN_WORD_LENGTH = 3
+
 class TrieNode:
     def __init__(self):
         self.children = {}
@@ -121,8 +123,8 @@ def search(board, r, c, node, current_word, visited, found):
     else: 
         return
 
-    # check if newly created prefix is a word
-    if node.is_word:
+    # check if newly created prefix is a word AND only include the word if of sufficent length according to GP rules
+    if node.is_word and len(current_word) >= MIN_WORD_LENGTH:
         found.add(current_word)
     
     # current position is now visited
